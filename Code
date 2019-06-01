@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Задание 2</title>
+    </head>
+    <body>
+<h3>Исходное положение:</h3>
+<input type="text" id="p1" onchange="change()"></input>
+</br>
+<button onclick="func()">Ok</button>
+
+<script>
+function change()
+{
+var p1 = document.getElementById("p1");
+p1.value=p1.value.toUpperCase();
+}
+
+function func()
+{
+
+var str = p1.value; 
+
+var arr = [];
+
+for(var i =0; i<str.length; i++)
+
+{
+
+arr[i]=str.charAt(i);
+
+}
+
+var hor ="ABCDEFGH";
+
+var vert = "12345678";
+
+if(hor.indexOf(arr[0])===-1||vert.indexOf(arr[1])===-1||arr[2]!=null)
+{
+alert("Проверьте начальную позицию");
+}
+else
+{
+var possibAns = [];
+
+possibAns[0] = hor.charAt(hor.indexOf(arr[0])+2);
+
+possibAns[1] = vert.charAt(vert.indexOf(arr[1])+1);
+
+possibAns[2] = hor.charAt(hor.indexOf(arr[0])+2);
+
+possibAns[3] = vert.charAt(vert.indexOf(arr[1])-1);
+
+possibAns[4] = hor.charAt(hor.indexOf(arr[0])-2);
+
+possibAns[5] = vert.charAt(vert.indexOf(arr[1])+1);
+
+possibAns[6] = hor.charAt(hor.indexOf(arr[0])-2);
+
+possibAns[7] = vert.charAt(vert.indexOf(arr[1])-1);
+
+possibAns[8] = hor.charAt(hor.indexOf(arr[0])+1);
+
+possibAns[9] = vert.charAt(vert.indexOf(arr[1])+2);
+
+possibAns[10] = hor.charAt(hor.indexOf(arr[0])+1);
+
+possibAns[11] = vert.charAt(vert.indexOf(arr[1])-2);
+
+possibAns[12] = hor.charAt(hor.indexOf(arr[0])-1);
+
+possibAns[13] = vert.charAt(vert.indexOf(arr[1])+2);
+
+possibAns[14] = hor.charAt(hor.indexOf(arr[0])-1);
+
+possibAns[15] = vert.charAt(vert.indexOf(arr[1])-2);
+
+var realAns = [];
+
+var k =0;
+var l = 0;
+
+for(; l<16; l+=2)
+
+	{
+	if(possibAns[l]!="" && possibAns[l+1]!="")
+		{
+		realAns[k]= possibAns[l]+""+possibAns[l+1];
+		k++;
+		}
+	}
+alert("Возможные варианты хода: \n" + realAns.join(', '));
+}
+}
+</script>   
+
+    </body>
+
+</html>
